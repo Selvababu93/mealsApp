@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/models/meal.dart';
+
 import 'package:meals_app/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealItem extends StatelessWidget {
-  const MealItem({super.key, required this.meal});
+  const MealItem({super.key, required this.meal, required this.onSelectMeal});
 
   final Meal meal;
+  // passing this func to Meal details screen page
+  final void Function(Meal meal) onSelectMeal;
   String get complexityText {
     // This method to get complexity text with TitleCase
     return meal.complexity.name[0].toUpperCase() + meal.complexity.name.substring(1);
@@ -25,6 +28,10 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
+        // Routing to meal details screen individual
+        onTap: () {
+          onSelectMeal(meal);
+        },
         child: Stack(
           children: [
             FadeInImage(

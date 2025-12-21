@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:meals_app/screens/categories.dart';
+import 'package:meals_app/screens/tabs.dart';
 
 void main() {
   runApp(const App());
@@ -21,10 +20,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: theme,
-      home: const CategoryScreen(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, theme: theme, home: const TabsScreen());
   }
 }
